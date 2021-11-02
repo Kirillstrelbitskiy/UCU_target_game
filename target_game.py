@@ -20,20 +20,34 @@ def generate_grid() -> List[List[str]]:
 
     return grid
 
-
 def get_words(f: str, letters: List[str]) -> List[str]:
     """
     Reads the file f. Checks the words with rules and returns a list of words.
     """
-    pass
 
+    words_dict = []
+
+    with open(f, "r") as file:
+        for word in file:
+            words_dict.append(word.lower())
+
+    return []
 
 def get_user_words() -> List[str]:
     """
     Gets words from user input and returns a list with these words.
     Usage: enter a word or press ctrl+d to finish.
     """
-    pass
+
+    words = []
+    while True:
+        try:
+            word = input()
+            words.append(word)
+        except EOFError:
+            break
+
+    return words
 
 
 def get_pure_user_words(user_words: List[str], letters: List[str], words_from_dict: List[str]) -> List[str]:
@@ -49,4 +63,5 @@ def get_pure_user_words(user_words: List[str], letters: List[str], words_from_di
 def results():
     pass
 
-print(generate_grid())
+
+print(get_user_words())
